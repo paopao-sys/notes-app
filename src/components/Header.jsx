@@ -1,6 +1,10 @@
-import React from "react";
+import CreateNoteModal from './modals/createNoteModal';
 
 const Header = () => {
+  const openCreateNoteModal = () => {
+    document.getElementById("my_modal_5").showModal();
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -17,8 +21,11 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Create Note</a>
+        <a className="btn" onClick={openCreateNoteModal}>
+          Create Note
+        </a>
       </div>
+      <CreateNoteModal />
     </div>
   );
 };
