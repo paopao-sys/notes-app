@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import supabase from "../config/supabaseConfig";
+import NoteCard from "./NoteCard";
 
 const Content = () => {
   const [notes, setNotes] = useState(null);
@@ -30,13 +31,7 @@ const Content = () => {
     <>
       <div className="card card-border bg-base-100 w-96">
         <div className="flex justify-center p-2 w-[99vw]">
-          {notes &&
-            notes.map((note) => (
-              <div key={note.id} className="card bg-base-200 p-8 my-2 m-2 max-w-[350px]">
-                <h2 className="card-title text-2xl p-2">{note.title}</h2>
-                <p className="p-2">{note.content}</p>
-              </div>
-            ))}
+          {notes && notes.map((note) => <NoteCard key={note.id} {...note} />)}
           {/* <div className="card-actions justify-end"></div> */}
         </div>
       </div>
